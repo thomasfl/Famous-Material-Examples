@@ -76,7 +76,7 @@ define(function(require, exports, module) {
         }
     });
 
-    // create a button with z-index 30
+    // create a button
     var button = new Paper({
         depth : 30,
         size : [48, 48],
