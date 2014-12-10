@@ -1,7 +1,7 @@
 Famous-Material-Examples
 ========================
 
-Examples for the Famous-Material package
+Examples for the [Famous-Material](https://github.com/StephanBijzitter/Famous-Material) package!
 
 Currently there's only one example, as there's very few components to show off for now. There will be more components (and thus more examples) very soon!
 
