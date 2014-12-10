@@ -30,13 +30,17 @@ define(function(require, exports, module) {
         content : 'Famous Material Examples',
         attributes : {
             id : 'skelware-header'
+        },
+        properties: {
+            backgroundColor: '#FF4080',
+            color: 'white'
         }
     });
 
     // create a search button for the footer
     var search_button = new Paper({
         depth : 20,
-        size : [64],
+        size : [80],
         type : Paper.TYPE_TILE,
         content : 'Search',
         properties : {
