@@ -80,13 +80,26 @@ define(function(require, exports, module) {
     });
 
     // create scrollable content
-    var content = new FlexScrollView();
+    var content = new FlexScrollView({
+        flow : true,
+        autoPipeEvents : true,
+        layout : CollectionLayout,
+        layoutOptions : {
+            itemSize : [50, 75],
+            spacing : [5, 5],
+            margins : [5, 5, 5, 5],
+            justify : [1, 1]
+        }
+    });
 
     // create a button to insert new content
     var button = new Paper({
         depth : 30,
         size : [48, 48],
-        content : '+'
+        content : '+',
+        properties : {
+            lineHeight : '48px'
+        }
     });
 
     // make the button emit the ripple/touch effect
@@ -95,6 +108,18 @@ define(function(require, exports, module) {
     // make the button actually look like a button
     button.mixin(ButtonEffect, {
         type : ButtonEffect.TYPE_FLOATING
+    });
+
+    // add new content to the scroller on click
+    button.on('click', function() {
+        var index = 0;
+        var paper = new Paper({
+            type : Paper.TYPE_CARD
+        });
+        var animation = {
+            opacity : 0
+        }
+        content.insert(index, paper, animation)
     });
 
     // create a layout for this page
