@@ -7,8 +7,11 @@ define(function(require, exports, module) {
     var ButtonEffect = require('famous-material/mixins/ButtonEffect');
 
     // import famous flex
+    var FlexScrollView = require('famous-flex/FlexScrollView');
     var LayoutController = require('famous-flex/LayoutController');
     var NavBarLayout = require('famous-flex/layouts/NavBarLayout');
+    var CollectionLayout = require('famous-flex/layouts/CollectionLayout');
+    var HeaderFooterLayout = require('famous-flex/layouts/HeaderFooterLayout');
 
     // import vanilla famo.us
     var Engine = require('famous/core/Engine');
@@ -76,7 +79,10 @@ define(function(require, exports, module) {
         }
     });
 
-    // create a button
+    // create scrollable content
+    var content = new FlexScrollView();
+
+    // create a button to insert new content
     var button = new Paper({
         depth : 30,
         size : [48, 48],
@@ -91,16 +97,26 @@ define(function(require, exports, module) {
         type : ButtonEffect.TYPE_FLOATING
     });
 
-    // add everything to the context
-    context.add(header);
+    // create a layout for this page
+    var layout = new LayoutController({
+        layout : HeaderFooterLayout,
+        layoutOptions : {
+            headerSize : 48,
+            footerSize : 32,
+            margins : 0
+        },
+        dataSource : {
+            header : header,
+            content : content,
+            footer : footer
+        }
+    });
 
+    // add the layout to the context
+    context.add(layout);
+
+    // add the button to the context
     context.add(new Modifier({
         transform : Transform.translate(12, 24)
     })).add(button);
-
-    context.add(new Modifier({
-        size : [undefined, 32],
-        origin : [0.0, 1.0],
-        align : [0.0, 1.0]
-    })).add(footer);
 });
