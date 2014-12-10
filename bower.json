@@ -1,0 +1,35 @@
+{
+  "name": "famous-material-examples",
+  "description": "Examples for the Famous-Material package.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/StephanBijzitter/famous-material-examples",
+  "authors": [
+    {
+      "name": "StephanBijzitter",
+      "url": "http://github.com/StephanBijzitter/"
+    }
+  ],
+  "main": "app/index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "famo.us"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.15",
+    "almond": "~0.2.9",
+    "famous-polyfills": "~0.3.0",
+    "famous": "~0.3.1",
+    "famous-material": "*"
+  }
+}
